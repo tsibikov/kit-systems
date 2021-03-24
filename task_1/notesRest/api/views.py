@@ -32,3 +32,4 @@ class NoteViewSet(viewsets.ModelViewSet):
             return self.get_paginated_response(serializer.data)
         serializer = NoteListSerializer(queryset, many=True)
         return Response(serializer.data)
+

@@ -1,0 +1,171 @@
+{% extends "main.html" %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col" style="text-align: center; margin-bottom: 30px">
+            <h1>Тестовый клиент notesRestClient</h1>
+        </div>
+    </div>    
+ 
+
+
+    <div class="row">
+        <div class="container" style="border: 1px solid #C0C0C0; border-radius: 2px; margin-bottom: 20px; background-color: rgb(250, 253, 220); background-color: rgb(250, 253, 220)">
+            <div class="row">
+                <div class="col" style="text-align: center; margin-bottom: 20px">
+                    <h3> Показать все записи </h3>
+                </div> 
+            </div> 
+            <div class="row">
+                <div class="col" style="text-align: center; margin-bottom: 20px">
+                    <a class="btn btn-primary" 
+                        href="{% url 'notes_all' %}" role="button" style="background-color:#3d7daa; color: white; margin-bottom: 20px;">
+                            Показать все заметки
+                    </a>
+                </div> 
+            </div> 
+        </div>
+    </div>  
+
+    <div class="row">
+            <div class="container" style="border: 1px solid #C0C0C0; border-radius: 2px; background-color: rgb(250, 253, 220)">
+            <form action={% url 'new_note' %} method="GET">
+
+                <div class="row">
+                    <div class="col" style="text-align: center; margin-bottom: 20px">
+                    <h3> Создание записи </h3>
+                    </div> 
+                </div> 
+
+                <div class="row">
+                <div class="col-3">
+                </div> 
+                <div class="col-6" style="text-align: center">
+                    <label for="note">Заметка: </label>
+                    <input type="text" id="note" class="form-control" name="note">
+                </div> 
+                </div> 
+                <div class="row">
+                <div class="col-3">
+                </div> 
+                <div class="col-6" style="text-align: center">
+                    <label for="description">Описание: </label>
+                    <input type="text" id="description" class="form-control" name="description">
+                </div>  
+                </div> 
+                <div class="row" style="margin-top: 20px"> 
+                <div class="col" style="text-align: center">  
+                    <input type="submit" class="btn btn-primary" value="Создать" style="background-color:#3d7daa; color: white; margin-bottom: 20px">
+                </div> 
+                </div> 
+            </form>
+        </div>    
+    </div>  
+
+
+
+    <div class="row" style="margin-top: 20px">
+            <div class="container" style="border: 1px solid #C0C0C0; border-radius: 2px; background-color: rgb(250, 253, 220)">
+            <form action={% url 'change_note' %} method="GET">
+
+                <div class="row">
+                    <div class="col" style="text-align: center; margin-bottom: 20px">
+                    <h3> Изменение записи </h3>
+                    </div> 
+                </div> 
+
+                <div class="row">
+                    <div class="col-3">
+                    </div> 
+                    <div class="col-6" style="text-align: center">
+                        <label for="id">ID заметки: </label>
+                        <input type="text" id="id" class="form-control" name="id">
+                    </div> 
+                    </div> 
+
+                <div class="row">
+                    <div class="col-3">
+                    </div> 
+                    <div class="col-6" style="text-align: center">
+                        <label for="note">Заметка: </label>
+                        <input type="text" id="note" class="form-control" name="note">
+                    </div> 
+                </div> 
+                <div class="row">
+                    <div class="col-3">
+                    </div> 
+                    <div class="col-6" style="text-align: center">
+                        <label for="description">Описание: </label>
+                        <input type="text" id="description" class="form-control" name="description">
+                    </div>  
+                </div> 
+                <div class="row" style="margin-top: 20px"> 
+                    <div class="col" style="text-align: center">  
+                        <input type="submit" class="btn btn-primary" value="Изменить" style="background-color:#3d7daa; color: white; margin-bottom: 20px">
+                    </div> 
+                </div> 
+            </form>
+        </div>    
+    </div> 
+
+    <div class="row" style="margin-top: 20px">
+        <div class="container" style="border: 1px solid #C0C0C0; border-radius: 2px; background-color: rgb(250, 253, 220)">
+            <form action={% url 'delete_note' %} method="GET">
+                <div class="row">
+                    <div class="col" style="text-align: center; margin-bottom: 20px">
+                    <h3> Удаление записей </h3>
+                    </div> 
+                </div> 
+
+                <div class="row">
+                    <div class="col-3">
+                    </div> 
+                    <div class="col-6" style="text-align: center">
+                        <label for="id">Введите через пробел ID заметок: </label>
+                        <input type="text" id="id" class="form-control" name="id">
+                    </div> 
+                    </div> 
+
+                <div class="row" style="margin-top: 20px"> 
+                    <div class="col" style="text-align: center">  
+                        <input type="submit" class="btn btn-primary" value="Удалить" style="background-color:#3d7daa; color: white; margin-bottom: 20px">
+                    </div> 
+                </div> 
+            </form>
+        </div>    
+    </div> 
+
+
+</div>    
+{% if modal %}
+<script type="text/javascript">
+    $(window).on('load',function(){
+        $('#myModal').modal('show');
+    });
+
+</script>
+<!-- Modal -->
+<div id="myModal" class="modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title"> Выполнен запрос </h5>
+      </div>
+      <div class="modal-body">
+         
+                <p> {{result}} </p>
+         
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-primary btn-block" 
+                     href="{% url 'index' %}" role="button" style="background-color:#3d7daa; color: white;">
+                     ОК 
+                     </a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endif %}
+
+{% endblock content %}
