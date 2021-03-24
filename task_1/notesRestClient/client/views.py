@@ -52,5 +52,15 @@ def delete_note(request):
                 response = 'Запись удалена'
             result.append(response)
         modal = True
-
     return render(request, 'index.html', {'result': result, 'modal': modal}) 
+
+
+def search_note(request):
+    url = 'http://localhost:5577/api/v1/notes_search/'
+    if 'note' in request.GET:
+        note = request.GET['note']
+        data = {}
+        data["note"] = note
+        response = requests.get(url, data=data).text
+        modal = True
+    return render(request, 'index.html', {'result': response, 'modal': modal}) 

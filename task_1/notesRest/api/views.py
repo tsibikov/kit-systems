@@ -33,3 +33,13 @@ class NoteViewSet(viewsets.ModelViewSet):
         serializer = NoteListSerializer(queryset, many=True)
         return Response(serializer.data)
 
+
+class NoteTextView(viewsets.ModelViewSet):
+    queryset = Note.objects.all()
+    serializer_class = NoteSerializer
+    http_method_names = ['get']
+
+    def get_queryset(self):
+        text = self.request.data.get("note")
+        queryset = self.queryset.filter(note__icontains=text)
+        return queryset

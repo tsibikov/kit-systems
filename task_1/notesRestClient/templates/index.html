@@ -136,6 +136,32 @@
         </div>    
     </div> 
 
+    <div class="row" style="margin-top: 20px">
+        <div class="container" style="border: 1px solid #C0C0C0; border-radius: 2px; background-color: rgb(250, 253, 220)">
+            <form action={% url 'search_note' %} method="GET">
+                <div class="row">
+                    <div class="col" style="text-align: center; margin-bottom: 20px">
+                    <h3> Поиск записи по полю note </h3>
+                    </div> 
+                </div> 
+
+                <div class="row">
+                    <div class="col-3">
+                    </div> 
+                    <div class="col-6" style="text-align: center">
+                        <label for="note">Введите фразу для поиска: </label>
+                        <input type="text" id="note" class="form-control" name="note">
+                    </div> 
+                    </div> 
+
+                <div class="row" style="margin-top: 20px"> 
+                    <div class="col" style="text-align: center">  
+                        <input type="submit" class="btn btn-primary" value="Найти" style="background-color:#3d7daa; color: white; margin-bottom: 20px">
+                    </div> 
+                </div> 
+            </form>
+        </div>    
+    </div> 
 
 </div>    
 {% if modal %}
