@@ -51,6 +51,6 @@ def delete_note(request):
             if response == '':
                 response = 'Запись удалена'
             result.append(response)
-        modal =True
+        modal = True
 
     return render(request, 'index.html', {'result': result, 'modal': modal}) 
