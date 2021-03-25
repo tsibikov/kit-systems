@@ -1,6 +1,4 @@
 def get_logs(log):
-    log_file = open(log)
-    log = log_file.read()
     text = log.split()
     result = {}
     for i in text:
@@ -21,6 +19,6 @@ def print_sorted_result(result):
 
 
 if __name__ == '__main__':
-    log = 'log.txt'
+    log = input()
     result = get_logs(log)
     print_sorted_result(result)
