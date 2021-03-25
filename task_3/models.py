@@ -35,7 +35,7 @@ class Book(models.Model):
     library = models.ForeignKey(Library)
     genres = models.ManyToManyField(Genre)
     authors = models.ManyToManyField(Author)
-    where_is = models.Choisefield(choises = [reader, library])
+    where_is = models.Choisefield(choises=('reader', 'library'))
     shelf = models.ForeignKey(Shelf, blank=True)
     reading_by = models.ForeignKey(Reader, blank=True)
 
