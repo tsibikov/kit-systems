@@ -7,7 +7,7 @@ def index(request):
 
 def notes_all(request):
     response = requests.get('http://localhost:5577/api/v1/notes/').text
-    modal =True
+    modal = True
     return render(request, 'index.html', {'result': response, 'modal': modal }) 
 
 
@@ -20,7 +20,7 @@ def new_note(request):
         data["note"] = note
         data["description"] = description
         response = requests.post(url, data=data).text
-        modal =True
+        modal = True
     return render(request, 'index.html', {'result': response, 'modal': modal}) 
 
 
@@ -35,7 +35,7 @@ def change_note(request):
         data["note"] = note
         data["description"] = description
         response = requests.put(note_url, data=data).text
-        modal =True
+        modal = True
     return render(request, 'index.html', {'result': response, 'modal': modal}) 
 
 

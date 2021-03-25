@@ -19,6 +19,9 @@ def print_sorted_result(result):
 
 
 if __name__ == '__main__':
-    log = input()
+    print('Введите путь к лог-файлу')
+    path = input()
+    log_file = open(path)
+    log = log_file.read()
     result = get_logs(log)
     print_sorted_result(result)
