@@ -52,6 +52,8 @@ python manage.py migrate
 python manage.py runserver 5577
 ```
 
+### Сервер принимает запросы по адресу: http://localhost:5577/api/v1/
+
 - Разработать клиента notesRestClient
 
 ### Методы:
@@ -83,6 +85,8 @@ python manage.py migrate
 ```
 python manage.py runserver
 ```
+
+### Клиент доступен в браузере по адресу: http://localhost:8000
 
 ## Задача 2.
 
