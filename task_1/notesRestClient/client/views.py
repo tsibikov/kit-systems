@@ -43,13 +43,19 @@ def delete_note(request):
     url = 'http://localhost:5577/api/v1/notes/'
     if 'id' in request.GET:
         note_ids = request.GET['id']
-        result = []
-        for note_id in note_ids.split():
-            note_url = url + note_id + '/'
-            response = requests.delete(note_url).text
-            if response == '':
-                response = 'Запись удалена'
-            result.append(response)
+        notes_to_delete = note_ids.split()
+        all_notes = requests.get('http://localhost:5577/api/v1/notes/').text
+        notes_list = all_notes.split('},{')
+        if len(notes_to_delete) <= len(notes_list):
+            result = []
+            for note_id in notes_to_delete:
+                note_url = url + note_id + '/'
+                response = requests.delete(note_url).text
+                if response == '':
+                    response = 'Запись удалена'
+                result.append(response)
+        else:
+            result = 'Ошибка. Вы хотите удалить слишком много записей'
         modal = True
     return render(request, 'index.html', {'result': result, 'modal': modal}) 
 
