@@ -46,7 +46,7 @@ def delete_note(request):
         notes_to_delete = note_ids.split()
         all_notes = requests.get('http://localhost:5577/api/v1/notes/').text
         notes_list = all_notes.split('},{')
-        if len(notes_to_delete) <= len(notes_list):
+        if len(notes_to_delete) <= len(notes_list) and all_notes != '[]':
             result = []
             for note_id in notes_to_delete:
                 note_url = url + note_id + '/'
