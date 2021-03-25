@@ -3,7 +3,6 @@ import requests
 
 
 def index(request):
-
     return render(request, 'index.html', {}) 
 
 def notes_all(request):
